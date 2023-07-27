@@ -12,7 +12,7 @@ export default function Home() {
     const loadStudents =async() => {
       const result =await axios.get('http://localhost:8081/student/all')
       
-      console.log(result);
+      setStudents(result.data)
     }
 
   return (
@@ -22,29 +22,28 @@ export default function Home() {
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Nume</th>
+                <th scope="col">Descriere</th>
+                <th scope="col">Email</th>
+                <th scope="col">Varsta</th>
+                <th scope="col">Data Nasterii</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                </tr>
+                {
+                  students.map((student, index) => (
+                    <tr>
+                    <th scope="row" key={index}>{index+1}</th>
+                    <td>{student.name}</td>
+                    <td>{student.description}</td>
+                    <td>{student.email}</td>
+                    <td>{student.age}</td>
+                    <td>{student.date}</td>
+                    </tr>
+                  ))
+                }
+                
+                
             </tbody>
             </table>
         </div>
