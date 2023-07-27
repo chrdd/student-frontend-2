@@ -21,12 +21,13 @@ export default function Home() {
         <table className="table table-striped border shadow">
             <thead>
                 <tr>
-                <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Nume</th>
                 <th scope="col">Descriere</th>
                 <th scope="col">Email</th>
                 <th scope="col">Varsta</th>
                 <th scope="col">Data Nasterii</th>
+                <th scope="col">Actiune</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +40,10 @@ export default function Home() {
                     <td>{student.email}</td>
                     <td>{student.age}</td>
                     <td>{student.date}</td>
+                    <td>
+                    <button type="button" class="btn btn-primary mx-2">Editare</button>
+                    <button type="button" class="btn btn-danger mx-2">Stergere</button>
+                    </td>
                     </tr>
                   ))
                 }
